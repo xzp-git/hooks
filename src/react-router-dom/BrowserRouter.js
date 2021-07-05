@@ -2,14 +2,14 @@ import React from "react";
 
 import {Router} from "react-router";
 
-import { createBrowaserHistory } from "history";
+import { createBrowserHistory } from "history";
 
 
 
 // 创建一个hash history 对象的方法  模拟了一个自己的history 但是使用hash实现的
 
-class BrowaserHistory extends React.Component{
-    history = createBrowaserHistory()
+class BrowserHistory extends React.Component{
+    history = createBrowserHistory()
 
     render(){
         return (
@@ -21,4 +21,4 @@ class BrowaserHistory extends React.Component{
 }
 
 
-export default BrowaserHistory
+export default BrowserHistory

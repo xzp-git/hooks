@@ -8,7 +8,7 @@ import RouterContext from "./RouterContext";
 
 */
 
-class Route extends React.Component{
+class Route extends React.Component {
     static contextType = RouterContext
 
     render(){

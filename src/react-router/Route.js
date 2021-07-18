@@ -13,7 +13,7 @@ class Route extends React.Component {
 
     render(){
         const {history, location} = this.context
-        const {component:RouteComponent,path} = this.props
+        const {component:RouteComponent,path, exact} = this.props
         const match = location.pathname === path
         let renderElement = null
         let routeProps = {history, location, match}

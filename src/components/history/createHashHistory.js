@@ -27,12 +27,26 @@ function createHashHistory() {
         // debugger
         if (!action || action === 'PUSH') {
             historyStack[++historyIndex] = history.location
+        }else if(action === 'REPLACE'){
+            historyStack[historyIndex] = history.location
         }
         listeners.forEach(listener => listener(history.location))
     })
     function push(pathname, nextState) {
 
         action = 'PUSH'
+        if (typeof pathname === 'object') {
+            state = pathname.state
+            pathname = pathname.pathname
+        }else{
+            state = nextState
+        }
+        // 给hash赋值的是不需要 加# 取得时候 带#
+        window.location.hash = pathname
+    }
+    function replace(pathname, nextState) {
+
+        action = 'REPLACE'
         if (typeof pathname === 'object') {
             state = pathname.state
             pathname = pathname.pathname
@@ -66,6 +80,7 @@ function createHashHistory() {
         goBack,
         goForward,
         push,
+        replace,
         listen
     }
     action = 'PUSH'

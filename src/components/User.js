@@ -3,7 +3,7 @@
 const User = (props) => {
 
     console.log(props.location.state);
-
+    console.log('user',props);
     return(
         <div>
             User

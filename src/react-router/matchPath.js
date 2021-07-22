@@ -1,11 +1,15 @@
 import pathToRegexp from "path-to-regexp"
 
-
+const cache = {}
 function compilePath (path, options) {
+    let cacheKey = path+JSON.stringify(options)
+    if (cache[cacheKey]) return cache[cacheKey]
     const keys = [] //处理路径参数
     const regexp = pathToRegexp(path,keys,options)
+    let result = {keys, regexp}
+    cache[cacheKey] = result
 
-    return {keys, regexp}
+    return result
 }
 
 

@@ -13,8 +13,8 @@ class Route extends React.Component {
 
     render(){
         const {history, location} = this.context
-        const {component:RouteComponent,path, exact} = this.props
-        const match = matchPatch(location.pathname, this.props)
+        const {component:RouteComponent,path, exact, computedMatch} = this.props
+        const match = computedMatch? computedMatch :matchPatch(location.pathname, this.props)
         let renderElement = null
         let routeProps = {history, location}
         if (match) {

@@ -11,7 +11,6 @@ import { createHashHistory } from "../components/history";
 class HashRouter extends React.Component{
     history = createHashHistory()
     render(){
-   
 
         return (
             <Router history={this.history}>

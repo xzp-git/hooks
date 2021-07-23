@@ -1,5 +1,4 @@
 import pathToRegexp from "path-to-regexp"
-
 const cache = {}
 function compilePath (path, options) {
     let cacheKey = path+JSON.stringify(options)

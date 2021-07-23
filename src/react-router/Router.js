@@ -6,7 +6,7 @@ class Router extends React.Component{
             path:'/',
             url:'/',
             params:{},
-            isExact: pathname == '/'
+            isExact: pathname === '/'
         }
     }
     constructor(props){

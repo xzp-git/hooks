@@ -13,13 +13,18 @@ class Route extends React.Component {
 
     render(){
         const {history, location} = this.context
-        const {component:RouteComponent, computedMatch} = this.props
+        const {component:RouteComponent, computedMatch, render} = this.props
         const match = computedMatch? computedMatch :matchPath(location.pathname, this.props)
         let renderElement = null
         let routeProps = {history, location}
         if (match) {
-            routeProps.match = match
-            renderElement = <RouteComponent {...routeProps} />
+            routeProps.match = match  //路由属性 如果一个组件是Route渲染的 他们的routeProps = {}
+            if (RouteComponent) {
+                renderElement = <RouteComponent {...routeProps} />
+            }else if (render) {
+                renderElement = render(routeProps)
+            }
+           
         }
         return renderElement
     }

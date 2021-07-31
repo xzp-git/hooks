@@ -8,7 +8,7 @@ export {default as matchPatch} from './matchPath'
 export {default as Switch} from './Switch'
 export {default as RouterContext} from './RouterContext'
 export {default as Redirect} from './Redirect'
-
+export {default as withRouter} from './withRouter'
 
 
 

@@ -10,6 +10,6 @@ export {default as RouterContext} from './RouterContext'
 export {default as Redirect} from './Redirect'
 export {default as withRouter} from './withRouter'
 export {default as Prompt} from './Prompt'
-
+export { useParams,useLocation,useRouteMatch, useHistory} from './hooks'
 
 

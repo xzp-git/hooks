@@ -1,6 +1,6 @@
 import React from 'react';
 import {UserAPI} from '../utils';
-// import {Prompt} from '../react-router-dom';
+import {Prompt} from '../react-router-dom';
 class UserList extends React.Component{
    state={isBlocking:false}//阻止跳转的意思
    nameRef = React.createRef()
@@ -18,12 +18,12 @@ class UserList extends React.Component{
        //Prompt when属性=true阻止，false不阻止
        return (
            <form onSubmit={this.handleSubmit}>
-               {/* <Prompt
+               <Prompt
                   when={this.state.isBlocking}
                   message={
-                      location=>`请问你是否真的要跳到${location.pathname}去吗?`
+                    pathname=>`请问你是否真的要跳到${pathname}去吗?`
                   }
-               /> */}
+               />
                <input ref={this.nameRef}
                       onChange={event=>this.setState({isBlocking:event.target.value.length>0})}
                 />

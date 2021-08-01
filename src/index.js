@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter, Route, Switch, Redirect, NavLink  } from "./react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect, NavLink  } from "./react-router-dom";
 
 import Home from "./components/Home";
 import Profile from "./components/Profile";
@@ -12,7 +12,7 @@ import NavBar from "./components/NavBar";
 
 
 ReactDOM.render(
-<HashRouter>
+<BrowserRouter>
 <NavBar title="返回首页" />
 <ul>
       <li><NavLink 
@@ -46,6 +46,6 @@ ReactDOM.render(
         <Route path="/Login" component={Login} />
         <Redirect to="/" />
     </Switch>
-</HashRouter>,
+</BrowserRouter>,
 
 document.getElementById('root'))

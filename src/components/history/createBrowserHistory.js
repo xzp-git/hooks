@@ -17,6 +17,7 @@ function createBrowserHistory() {
     let listeners = []
     let action 
     let state
+    let message;
     function go(n) {
         globalHistory.go(n)
     }
@@ -44,6 +45,13 @@ function createBrowserHistory() {
         }else{
             state = nextState
         }
+
+        if (message) {
+            let showMessage = message(pathname)
+            let allow = window.confirm(showMessage)
+            if (!allow) return
+        }
+
         globalHistory.pushState(state,null,pathname)
         let location = {
             state,
@@ -63,6 +71,11 @@ function createBrowserHistory() {
     window.onpopstate = (event) => {
         setState({action:'POP',location:{pathname: window.location.pathname,state:globalHistory.state}})
     }
+    function block(newMessage) {
+        message = newMessage
+
+        return () => message = null
+    }
     const history = {
         action:'POP',//当前最后一个动作是什么动作 push PUSH  goBack  POP
         location:{pathname: window.location.pathname,state:globalHistory.state},
@@ -70,7 +83,8 @@ function createBrowserHistory() {
         goBack,
         goForward,
         push,
-        listen
+        listen,
+        block
     }
 
     return history

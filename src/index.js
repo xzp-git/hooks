@@ -1,4 +1,4 @@
-import { createStore } from "./redux/index.js";
+import { createStore } from "./redux";
 
 const ADD = 'ADD'
 
@@ -22,5 +22,21 @@ const reducer = (oldState, action) => {
 
 let store = createStore(reducer,{number:0})
 
-console.log(store.getState());
-// store.dispatch({type:ADD})
+let containerValue = document.getElementById('container-value')
+
+function render() {
+    containerValue.innerHTML = store.getState().number
+}
+render()
+store.subscribe(render)
+let addBtn = document.getElementById('add-btn')
+
+addBtn.addEventListener('click',() => {
+    store.dispatch({type:ADD})
+})
+
+let minusBtn = document.getElementById('minus-btn')
+
+minusBtn.addEventListener('click',() => {
+    store.dispatch({type:MINUS})
+})

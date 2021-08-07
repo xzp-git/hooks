@@ -27,7 +27,8 @@ function createStore(reducer, preloadedState) {
         listeners.forEach(l => l())
         return action
     }
-    
+    //在创建仓库的时候，会先派发一次action 会让reducer设置的默认值生效
+    dispatch({type:'@@REDUX/INIT'})
     const store = {
         getState,
         subscribe,

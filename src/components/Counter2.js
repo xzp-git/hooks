@@ -1,7 +1,7 @@
 import React from "react";
 import store from "../store";
 import { bindActionCreators } from "../redux";
-import actions from "../store/actions/counter1";
+import actions from "../store/actions/counter2";
 
 // 绑定actionsCreator
 const boundActions = bindActionCreators(actions,store.dispatch)
@@ -13,13 +13,13 @@ const boundActions = bindActionCreators(actions,store.dispatch)
         return dispatch(minus())
     },     
 } */
-class Counter1 extends React.Component{
-    state = {number:store.getState().counter1.number}
+class Counter2 extends React.Component{
+    state = {number:store.getState().counter2.number}
     componentDidMount(){
         // 进行订阅
 
         this.unscbscribe = store.subscribe(() => {
-            this.setState({number:store.getState().counter1.number})
+            this.setState({number:store.getState().counter2.number})
         })
     }
     componentWillUnmount(){
@@ -29,12 +29,12 @@ class Counter1 extends React.Component{
         return (
             <div>
                 <p>{this.state.number}</p>
-                <button onClick={boundActions.add1}>+</button>
-                <button onClick={ boundActions.minus1}>-</button>
+                <button onClick={ boundActions.add2}>add2+</button>
+                <button onClick={ boundActions.minus2}>minus2-</button>
 
             </div>
         )
     }
 }
 
-export default Counter1
+export default Counter2

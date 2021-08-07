@@ -14,6 +14,11 @@ function createStore(reducer, preloadedState) {
 
     function subscribe(listener) {
         listeners.push(listener)
+        // 订阅方法会返回一个取消订阅的函数
+        return () => {
+            let index = listeners.indexOf(listener)
+            listeners.splice(index,1)
+        }
     }
 
     // action 动作

@@ -27,3 +27,27 @@ console.log('/home//'.match(/^\/home(?:\/(?=$))?(?=\/|$)/));
 
 // // 反向肯定后瞻  
 // console.log('A1ab'.match(/(?<![A-Z])\d[a-z]/))
+
+
+
+/* 
+start
+1
+stop
+2
+5
+3
+4
+
+
+
+
+start
+1
+stop
+5
+3
+4
+2
+
+*/

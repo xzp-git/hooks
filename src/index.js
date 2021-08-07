@@ -1,42 +1,7 @@
-import { createStore } from "./redux";
+import React from "react";
+import ReactDOM from "react-dom";
+import Counter1 from "./components/Counter1";
 
-const ADD = 'ADD'
 
-const MINUS = 'MINUS'
-/* 
-oldState 老状态
+ReactDOM.render(<Counter1 />, document.getElementById('root'))
 
-action 动作
-
-*/
-const reducer = (oldState, action) => {
-    switch(action.type){ //判断动作的类型
-        case ADD:
-            return {number:oldState.number + 1} 
-        case MINUS:
-            return {number:oldState.number - 1} 
-        default:
-            return oldState
-    }
-}
-
-let store = createStore(reducer,{number:0})
-
-let containerValue = document.getElementById('container-value')
-
-function render() {
-    containerValue.innerHTML = store.getState().number
-}
-render()
-store.subscribe(render)
-let addBtn = document.getElementById('add-btn')
-
-addBtn.addEventListener('click',() => {
-    store.dispatch({type:ADD})
-})
-
-let minusBtn = document.getElementById('minus-btn')
-
-minusBtn.addEventListener('click',() => {
-    store.dispatch({type:MINUS})
-})

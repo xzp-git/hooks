@@ -26,19 +26,21 @@ class Counter1 extends React.Component{
     // componentWillUnmount(){
     //     this.unscbscribe()
     // }
+    
     render(){
+        const {number} = this.props
         return (
             <div>
-                <p>{this.props.number}</p>
+                <p>{number}</p>
                 <button onClick={this.props.add1}>+</button>
                 <button onClick={ this.props.minus1}>-</button>
-
             </div>
         )
     }
 }
-
-export default connect(state => state.Counter1,actions)(Counter1)
+// 这是一个映射函数，可以把仓库的状态进行映射出来分状态，分状态会成为组件属性对象
+let mapStateToProps = state => state.counter1
+export default connect(mapStateToProps,actions)(Counter1)
 
 
 /*

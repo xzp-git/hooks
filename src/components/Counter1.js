@@ -2,7 +2,7 @@ import React from "react";
 // import store from "../store";
 // import { bindActionCreators } from "../redux";
 import actions from "../store/actions/counter1";
-import { connect } from "react-redux";
+import { connect } from "../react-redux";
 
 // 绑定actionsCreator
 // const boundActions = bindActionCreators(actions,store.dispatch)

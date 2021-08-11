@@ -1,14 +1,14 @@
 import React from "react";
-import actions from "../store/actions/counter1";
-import { connect } from "react-redux";
+import actions from "../store/actions/counter2";
+import { connect } from "../react-redux";
 
 class Counter2 extends React.Component{
 
     render(){
-        const {number} = this.props
+
         return (
             <div>
-                <p>{this.state.number}</p>
+                <p>{this.props.number}</p>
                 <button onClick={ this.props.add2}>add2+</button>
                 <button onClick={ this.props.minus2}>minus2-</button>
 
@@ -17,5 +17,5 @@ class Counter2 extends React.Component{
     }
 }
 
-let mapStateToProps = state => state.Counter2
+let mapStateToProps = state => state.counter2
 export default connect(mapStateToProps,actions)(Counter2)

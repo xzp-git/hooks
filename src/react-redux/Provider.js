@@ -1,5 +1,5 @@
 import React from "react";
-import ReactReduxContext from "./reactReduxContext";
+import ReactReduxContext from "./ReactReduxContext";
 
 function Provider(props) {
     let value = {store:props.store}
